@@ -445,6 +445,9 @@ static char const* cmake_op_str(Op op) {
   case MOV: return "MOV";
   case ADD: return "ADD";
   case SUB: return "SUB";
+  case MUL: return "MUL";
+  case DIV: return "DIV";
+  case MOD: return "MOD";
   case LOAD: return "LOAD";
   case STORE: return "STORE";
   case PUTC: return "PUTC";

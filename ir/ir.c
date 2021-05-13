@@ -203,6 +203,12 @@ static Op get_op(Parser* p, const char* buf) {
     return ADD;
   } else if (!strcmp(buf, "sub")) {
     return SUB;
+  } else if (!strcmp(buf, "mul")) {
+    return MUL;
+  } else if (!strcmp(buf, "div")) {
+    return DIV;
+  } else if (!strcmp(buf, "mod")) {
+    return MOD;
   } else if (!strcmp(buf, "load")) {
     return LOAD;
   } else if (!strcmp(buf, "store")) {
@@ -344,7 +350,7 @@ static void parse_line(Parser* p, int c) {
     ir_error(p, "oops");
   }
   int argc;
-  if (op <= STORE)
+  if (op <= STORE || op == MUL || op == DIV || op == MOD)
     argc = 2;
   else if (op <= GETC)
     argc = 1;
@@ -448,6 +454,9 @@ static void parse_line(Parser* p, int c) {
     case MOV:
     case ADD:
     case SUB:
+    case MUL:
+    case DIV:
+    case MOD:
     case EQ:
     case NE:
     case LT:
@@ -623,6 +632,9 @@ void dump_inst_fp(Inst* inst, FILE* fp) {
     case MOV:
     case ADD:
     case SUB:
+    case MUL:
+    case DIV:
+    case MOD:
     case LOAD:
     case STORE:
     case EQ:

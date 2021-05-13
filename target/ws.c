@@ -271,6 +271,18 @@ void target_ws(Module* module) {
         ws_emit_addsub(inst, WS_SUB);
         break;
 
+      case MUL:
+        ws_emit_addsub(inst, WS_MUL);
+        break;
+
+      case DIV:
+        ws_emit_addsub(inst, WS_DIV);
+        break;
+
+      case MOD:
+        ws_emit_addsub(inst, WS_MOD);
+        break;
+
       case LOAD:
         ws_emit_op(WS_PUSH, inst->dst.reg);
         ws_emit_src(inst, 8);

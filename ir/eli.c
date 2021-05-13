@@ -142,6 +142,27 @@ int main(int argc, char* argv[]) {
           regs[inst->dst.reg] %= MEMSZ;
           break;
 
+        case MUL:
+          assert(inst->dst.type == REG);
+          regs[inst->dst.reg] *= src(inst);
+          regs[inst->dst.reg] += MEMSZ;
+          regs[inst->dst.reg] %= MEMSZ;
+          break;
+
+        case DIV:
+          assert(inst->dst.type == REG);
+          regs[inst->dst.reg] /= src(inst);
+          regs[inst->dst.reg] += MEMSZ;
+          regs[inst->dst.reg] %= MEMSZ;
+          break;
+
+        case MOD:
+          assert(inst->dst.type == REG);
+          regs[inst->dst.reg] %= src(inst);
+          regs[inst->dst.reg] += MEMSZ;
+          regs[inst->dst.reg] %= MEMSZ;
+          break;
+
         case LOAD: {
           assert(inst->dst.type == REG);
           int addr = src(inst);

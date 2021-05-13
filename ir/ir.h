@@ -25,6 +25,7 @@ typedef enum {
   JEQ = 8, JNE, JLT, JGT, JLE, JGE, JMP,
   // Optional operations follow.
   EQ = 16, NE, LT, GT, LE, GE, DUMP,
+  MUL, DIV, MOD,
   LAST_OP
 } Op;
 
