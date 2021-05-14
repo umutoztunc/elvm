@@ -608,7 +608,8 @@ void dump_op(Op op, FILE* fp) {
   static const char* op_strs[] = {
     "mov", "add", "sub", "load", "store", "putc", "getc", "exit",
     "jeq", "jne", "jlt", "jgt", "jle", "jge", "jmp", "xxx",
-    "eq", "ne", "lt", "gt", "le", "ge", "dump"
+    "eq", "ne", "lt", "gt", "le", "ge", "dump",
+    "mul", "div", "mod",
   };
   fprintf(fp, "%s", op_strs[op]);
 }
